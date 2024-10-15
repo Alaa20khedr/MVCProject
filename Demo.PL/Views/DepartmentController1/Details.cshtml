@@ -1,0 +1,32 @@
+﻿
+
+@model Department
+@{
+    ViewData["Title"] = "Details";
+}
+<h1>DepartmentDetails</h1>
+<br />
+<br>
+<div class="row">
+    <div class="col-6">
+        <form asp-action="Details" asp-controller="DepartmentController1">
+    <div class="form-group">
+        <label asp-for="@Model.CreatedDate" class="form-label"></label>
+                <input asp-for="@Model.CreatedDate" class="form-control" readonly>
+                <span asp-validation-for="@Model.CreatedDate" class="text-danger"></span>
+    </div>
+            <div class="form-group">
+                <label asp-for="@Model.Name" class="form-label"></label>
+                <input asp-for="@Model.Name" class="form-control" readonly>
+                <span asp-validation-for="@Model.Name" class="text-danger"></span>
+            </div>
+  <br />
+            <a asp-action="Update" class="btn btn-primary" asp-route-id="@Model.Id">Update</a>
+            <a asp-action="index" class="btn btn-light">Back To List</a>
+</form>
+</div>
+</div>
+@section Scripts{
+<partial name="_validationScriptsPartial">
+}
+

@@ -1,0 +1,32 @@
+﻿@model ApplicationUser
+@{
+    ViewData["Title"] = "Details";
+   // Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>UsersDetails</h1>
+<br />
+<br>
+<div class="row">
+    <div class="col-6">
+        <form asp-action="Details" asp-controller="UserController1">
+            <div class="form-group">
+                <label asp-for="@Model.Email" class="form-label"></label>
+                <input asp-for="@Model.Email" class="form-control" readonly>
+                <span asp-validation-for="@Model.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.UserName" class="form-label"></label>
+                <input asp-for="@Model.UserName" class="form-control" readonly>
+                <span asp-validation-for="@Model.UserName" class="text-danger"></span>
+            </div>
+            <br />
+            <a asp-action="Update" class="btn btn-primary" asp-route-id="@Model.Id">Update</a>
+            <a asp-action="Index" class="btn btn-light">Back To List</a>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_validationScriptsPartial">
+}
+
+

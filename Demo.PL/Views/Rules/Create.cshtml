@@ -1,0 +1,19 @@
+﻿@model ApplicationRole
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>CreateRole</h1>
+
+
+<div class="row">
+    <div class="col-6">
+        <form asp-action="Create" asp-controller="Rules" enctype="multipart/form-data">
+   
+          <partial name="Partialviews/CreateOrUpdatePartialView" model="@Model"/>
+    <button type="submit" class="btn btn-primary">Create</button/> 
+    <a asp-action="Index" class="btn btn-light">Back To List</a>
+</form>
+</div>
+</div>

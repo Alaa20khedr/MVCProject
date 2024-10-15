@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ApplicationRole>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>All Roles</h1>
+<br />
+<a asp-action="create" class="btn btn-primary">Create New Role</a>
+<br />
+<br />
+
+@if (Model.Count() > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">@Html.DisplayNameFor(x => x.Id)</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.Name)</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.CreateAt)</th>
+                <th scope="col">Details</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.CreateAt</td>
+                    <td>
+                        <a class="btn btn-success " asp-controller="Rules" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-warning " asp-controller="Rules" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger " asp-controller="Rules" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+}
+else
+{
+    <br />
+    <div class="alert alert-danger">
+        <h1>No Roles Found!!</h1>
+    </div>
+}
+
+
+

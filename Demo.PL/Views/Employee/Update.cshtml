@@ -1,0 +1,19 @@
+﻿@model EmployeeViewModel
+@{
+    ViewData["Title"] = "Update";
+
+      var Departments = new SelectList(ViewBag.Departments, "Id", "Name");
+}
+
+
+<div class="row">
+    <div class="col-6">
+        <form asp-action="Update" asp-controller="Employee"  enctype="multipart/form-data" >
+   
+          <partial name="Partialviews/CreateOrUpdatePartialView"/>
+    <button type="submit" class="btn btn-primary">Update</button/> 
+    <a asp-action="Index" class="btn btn-light">Back To List</a>
+</form>
+</div>
+</div>
+
